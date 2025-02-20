@@ -46,6 +46,6 @@ function storePassword(username, pw1, pw2){
 console.log(storePassword("John", "passwordKoto", "passwordKoto"));	// no number
 console.log(storePassword("John", "PASS12345", "PASS12345"));		// no lowercase
 console.log(storePassword("John", "pass12345", "pass12345"));		// no uppercase
-console.log(storePassword("John", "Pass1234", "Pass1234"));		// valid
 console.log(storePassword("John", "Pass123", "Pass12345"));		// too short
 console.log(storePassword("Alex", "MyBestPassword101", "MyBestPassword101"));	// valid
+console.log(storePassword("John", "Pass1234", "Pass1234"));		// valid
