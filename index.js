@@ -6,14 +6,16 @@
 
 // Checks if the input passwords are valid
 function validatePassword(pw1, pw2){
+	// Non-iterative conditions
 	if(pw1 != pw2) return false;
 	if(pw1.length != pw2.length) return false;
 
+	// All conditions that must be met
 	var hasNum = false;
 	var hasUpper = false;
 	var hasLower = false;
 
-	pw1.split('').forEach((c,i)=>{
+	pw1.split('').forEach((c,i)=>{	// converts pw1 to array and use forEach to iterate
 		if(isNaN(c) && (c === c.toUpperCase())) hasUpper = true;
 		if(isNaN(c) && (c === c.toLowerCase())) hasLower = true;
 		if(!isNaN(c)) hasNum = true;
@@ -23,9 +25,9 @@ function validatePassword(pw1, pw2){
 
 // Reverses a password string
 function reversePassword(pw){
-	let reversedPw = '';
-	for(let i=pw.length-1; i>=0; i--){
-		reversedPw += pw[i];
+	let reversedPw = '';			// initialize an empty string
+	for(let i=pw.length-1; i>=0; i--){	// add all char from the back into
+		reversedPw += pw[i];		// the empty str
 	}
 	return reversedPw;
 }
@@ -36,7 +38,7 @@ function storePassword(username, pw1, pw2){
 		name: username,
 		newpassword: pw1
 	}
-
+	// If pw is valid, reverse the newpassword property
 	if(validatePassword(pw1, pw2)) userCred.newpassword = reversePassword(pw1);
 	return userCred;
 }
